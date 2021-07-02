@@ -1,30 +1,87 @@
+/* Custom properties */
 :root {
-  --primary-color: rgb(255, 215, 35);
+  --primary-color: gold;
   --font-black-color: rgb(44, 44, 44);
-  --font: sans-serif;
+  --header-elements-background: rgb(245, 245, 245);
+  --font: "San Francisco Text";
 }
 
+/* <Site styles> */
+
+
+/********************** Navigation hamburguer button */
+/**********************  */
 .header {
-  background-color: var(--primary-color);
-  padding: 0 1rem;
-  height: 49px;
+  padding: 0 2rem;
+  height: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid var(--header-elements-background);
 }
 
 .header-brand {
-  font-size: 1.5rem;
-  color: var(--font-black-color);
+  font-size: 2rem;
+  color: var(--primary-color);
   font-family: var(--font);
   font-weight: bolder;
 }
 
-.header-navigation {
+/********************** Navigation hamburguer button */
+.nav-container {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
 }
 
-.header-navigation a {
-  margin-left: .5rem;
+.nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-width: 0;
+  border-radius: 50%;
+  background-color: var(--header-elements-background);
+  transition: all 0.1s;
 }
+
+.nav-list {
+  position: absolute;
+  transform: translateY(2.8rem);
+  padding: 0.5rem 0;
+  width: 5rem;
+  border-radius: 0.4rem;
+  font: var(--font);
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0px 0.5rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.nav-list a {
+  padding: 0.5rem 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(105, 105, 105);
+  transition: background-color 0.2s;
+}
+
+.nav-list a:hover {
+  background-color: var(--primary-color);
+}
+
+/************ JS toggles */
+.btn_active {
+  /* When nav button is active */
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
+  transition: all 0.1s;
+}
+
+.show {
+  /* To hide or show an element */
+  display: none;
+}
+/*****************************************************/
