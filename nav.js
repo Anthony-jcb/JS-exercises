@@ -4,7 +4,7 @@ const $nav_btn = document.getElementById("nav-btn"),
   $close_menu_icon = document.getElementById("close_icon");
 
 function showPopupMenu() {
-  $nav.classList.toggle("show");
+  $nav.classList.toggle("hide-menu");
   $nav_btn.classList.toggle("btn_active");
   $bars_menu_icon.classList.toggle("show");
   $close_menu_icon.classList.toggle("show");
