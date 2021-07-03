@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,7 +14,7 @@
       <section class="nav-container">
         <button id="nav-btn" class="nav-button">
           <svg
-            id="bars_icon"
+            class="normal_icon"
             xmlns="http://www.w3.org/2000/svg"
             height="18px"
             viewBox="0 0 24 24"
@@ -27,8 +27,7 @@
             />
           </svg>
           <svg
-            id="close_icon"
-            class="show"
+            class="close_icon show"
             xmlns="http://www.w3.org/2000/svg"
             height="18px"
             viewBox="0 0 24 24"
@@ -41,32 +40,73 @@
             />
           </svg>
         </button>
-        <nav id="nav-list" class="nav-list hide-menu">
-          <a href="#seccion1">Sección 1</a>
-          <a href="#seccion2">Sección 2</a>
-          <a href="#seccion3">Sección 3</a>
-          <a href="#seccion4">Sección 4</a>
-          <a href="#seccion5">Sección 5</a>
+        <nav id="nav-list" class="nav-list not-active">
+          <a href="#section1">Sección 1</a>
+          <a href="#section2">Sección 2</a>
+          <a href="#section3">Sección 3</a>
+          <a href="#section4">Sección 4</a>
+          <a href="#section5">Sección 5</a>
         </nav>
       </section>
     </header>
+
     <main>
-      <section id="seccion1" class="seccion">
-        <h2>Sección 1</h2>
-      </section>
-      <section id="seccion2" class="seccion">
-        <h2>Sección 2</h2>
-      </section>
-      <section id="seccion3" class="seccion">
-        <h2>Sección 3</h2>
-      </section>
-      <section id="seccion4" class="seccion">
-        <h2>Sección 4</h2>
-      </section>
-      <section id="seccion5" class="seccion">
-        <h2>Sección 5</h2>
-      </section>
+      <div class="section" id="section1">
+        <section class="section-container">
+          <h2>section 1</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui
+            quo. Similique saepe ab assumenda. Voluptas exercitationem tempora
+            minus ab, cumque quos qui rem perferendis a illo vero fugit
+            recusandae.
+          </p>
+        </section>
+      </div>
+      <div class="section" id="section2">
+        <section class="section-container">
+          <h2>section 2</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui
+            quo. Similique saepe ab assumenda. Voluptas exercitationem tempora
+            minus ab, cumque quos qui rem perferendis a illo vero fugit
+            recusandae.
+          </p>
+        </section>
+      </div>
+      <div class="section" id="section3">
+        <section class="section-container">
+          <h2>section 3</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui
+            quo. Similique saepe ab assumenda. Voluptas exercitationem tempora
+            minus ab, cumque quos qui rem perferendis a illo vero fugit
+            recusandae.
+          </p>
+        </section>
+      </div>
+      <div class="section" id="section4">
+        <section class="section-container">
+          <h2>section 4</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui
+            quo. Similique saepe ab assumenda. Voluptas exercitationem tempora
+            minus ab, cumque quos qui rem perferendis a illo vero fugit
+            recusandae.
+          </p>
+        </section>
+      </div>
+      <div class="section" id="section5">
+        <section class="section-container">
+          <h2>section 5</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui
+            quo. Similique saepe ab assumenda. Voluptas exercitationem tempora
+            minus ab, cumque quos qui rem perferendis a illo vero fugit
+            recusandae.
+          </p>
+        </section>
+      </div>
     </main>
-    <script src="nav.js" type="module"></script>
+    <script src="index_dom.js" type="module"></script>
   </body>
 </html>
