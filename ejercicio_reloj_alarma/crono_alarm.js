@@ -22,9 +22,23 @@ export function Cronometer($Display, $startButton, $stopButton) {
 }
 
 export function Alarm($startButton, $stopButton) {
-  D.addEventListener("click", (event) => {
-    if (event.target.matches($startButton)){
+  let alarm_sound;
 
+  D.addEventListener("click", (event) => {
+    if (event.target.matches($startButton)) {
+      alarm_sound = new Audio("./assets/alarm.mp3");
+      alarm_sound.play();
+      alarm_sound.loop = true;
+
+      event.disabled = true;
     }
-  })
+  });
+
+  D.addEventListener("click", (event) => {
+    if (event.target.matches($stopButton)) {
+      alarm_sound.pause();
+      
+      D.querySelector($startButton).disabled = false;
+    }
+  });
 }

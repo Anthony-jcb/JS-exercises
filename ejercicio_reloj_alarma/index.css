@@ -1,3 +1,18 @@
+body {
+  margin: 0;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(251, 219, 73);
+}
+
+.header_nav h2 {
+  text-align: center;
+}
+
 .section {
   display: flex;
   justify-content: center;
@@ -7,4 +22,8 @@
 .section_container {
   max-width: 1200px;
   margin: 2rem 2rem;
+}
+
+.button {
+  padding: .5rem;
 }
