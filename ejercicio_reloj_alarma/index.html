@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="material_icons_presets.css" />
     <title>Time & Alarm</title>
   </head>
   <body>
@@ -15,15 +20,44 @@
 
       <div class="section">
         <section class="section_container">
-          <div id="display_crono" class="crono_display"></div>
-          <button id="start_crono" class="button">Start clock</button>
-          <button id="stop_crono" class="button">Stop clock</button>
+          <div id="display_crono" class="crono_display">
+            <h3>00:00:00</h3>
+          </div>
         </section>
       </div>
+
       <div class="section">
         <section class="section_container">
-          <button id="new_alarm" class="button">New alarm</button>
-          <button id="stop_alarm" class="button">Delete alarm</button>
+          <div class="responsive_container">
+            <div class="button_container">
+              <button id="start_crono" class="button tooltip bottom">
+                <div>
+                  <span class="material-icons"> timer </span>
+                  <span class="tiptext">Start clock</span>
+                </div>
+              </button>
+              <button id="stop_crono" class="button tooltip bottom">
+                <div>
+                  <span class="material-icons"> timer_off </span>
+                  <span class="tiptext">Stop clock</span>
+                </div>
+              </button>
+            </div>
+            <div class="button_container">
+              <button id="new_alarm" class="button tooltip bottom">
+                <div>
+                  <span class="tiptext">New alarm</span>
+                  <span class="material-icons"> alarm_add </span>
+                </div>
+              </button>
+              <button id="stop_alarm" class="button tooltip bottom">
+                <div>
+                  <span class="tiptext">Stop alarm</span>
+                  <span class="material-icons">alarm_off</span>
+                </div>
+              </button>
+            </div>
+          </div>
         </section>
       </div>
     </main>

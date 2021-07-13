@@ -1,16 +1,72 @@
+@font-face {
+  font-family: "LCD";
+  src: url(./assets/clock_font.TTF);
+}
+
+:root {
+  --gray-color: rgb(70, 70, 70);
+  --black-color: rgb(41, 41, 41);
+  --primar-color: #f7df1e;
+}
+
 body {
   margin: 0;
 }
 
+/* Tooltip code */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted var(--black-color);
+}
+.tooltip .tiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--black-color);
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 6px 0;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.tooltip .tiptext::after {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+}
+.tooltip:hover .tiptext {
+  visibility: visible;
+}
+
+.tooltip.bottom .tiptext {
+  margin-left: -60px;
+  top: 115%;
+  left: 50%;
+}
+.tooltip.bottom .tiptext::after {
+  margin-left: -5px;
+  bottom: 100%;
+  left: 50%;
+  border-color: transparent transparent #2e2e2e transparent;
+}
+/********************************************/
+
+/* Site styles ******************************/
 .header_nav {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(251, 219, 73);
+  background-color: var(--primar-color);
 }
 
 .header_nav h2 {
   text-align: center;
+  color: var(--gray-color);
 }
 
 .section {
@@ -21,9 +77,75 @@ body {
 
 .section_container {
   max-width: 1200px;
-  margin: 2rem 2rem;
+  margin: 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section_container h3 {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  font-family: "LCD";
+  font-size: 10rem;
+  overflow: hidden;
+  color: rgb(41, 41, 41);
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .button {
-  padding: .5rem;
+  padding: 0 0;
+  margin: 0.5rem;
+  color: var(--black-color);
+  border: 0px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: background-color 0.2s;
+}
+
+.button div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  border: 0px;
+}
+
+.button:hover {
+  background-color: var(--primar-color);
+}
+
+@media screen and (max-width: 782px) and (orientation: portrait) {
+  .section_container h3 {
+    font-size: 5rem;
+  }
+
+  .responsive_container {
+    position: absolute;
+    bottom: 0;
+    margin: 3rem;
+  }
+}
+
+@media screen and (max-height: 580px) and (orientation: landscape) {
+  .section_container {
+    flex-direction: row;
+  }
+
+  .section_container h3 {
+    font-size: 6rem;
+    margin: 0 0;
+  }
+
+  .responsive_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 }
