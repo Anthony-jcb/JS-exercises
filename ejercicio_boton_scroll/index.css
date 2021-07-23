@@ -1,3 +1,7 @@
+:root {
+  --primary-color: rgb(255, 230, 0);
+}
+
 body {
   height: 2000px;
   margin: 0 0;
@@ -7,39 +11,47 @@ body {
   display: flex;
   width: 100%;
   height: 5rem;
-  background-color: rgb(255, 230, 0);
+  background-color: var(--primary-color);
   justify-content: center;
   align-items: center;
   text-align: center;
   font-family: monospace;
 }
 
-.scrollTop svg {
-  fill: rgb(32, 32, 32);
-}
-
-.scrollTop {
+.button {
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 4vh;
-  right: 2vw;
-  z-index: 999;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
   cursor: pointer;
   border: 0;
-  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px .8rem rgba(0, 0, 0, 0.18);
   transition: all 0.3s;
 }
 
-.scrollTop:hover {
-  background-color: rgb(255, 230, 0);
+.button:hover {
+  background-color: var(--primary-color);
+}
+
+.button svg {
+  fill: rgb(32, 32, 32);
+}
+
+.scrollTop {
+  bottom: 13vh;
+  right: 2vw;
+  z-index: 999;
 }
 
 .scrollTop.hidden {
   visibility: hidden;
   opacity: 0;
+  transition: all 0.3s;
+}
+
+.hide {
+  display: none;
 }
