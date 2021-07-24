@@ -1,0 +1,20 @@
+.tester_container {
+  margin-top: 20rem;
+  display: flex;
+  justify-content: center;
+}
+
+#responsive_tester {
+  display: flex;
+  flex-direction: column;
+}
+
+#responsive_tester input {
+  padding: .5rem;
+  margin: .5rem;
+}
+
+#responsive_tester div {
+  display: flex;
+  justify-content: center;
+}
