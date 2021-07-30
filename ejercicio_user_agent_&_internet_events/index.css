@@ -1,0 +1,54 @@
+.connection_state {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  padding: 0rem 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  width: 250px;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: 2px solid rgba(199, 199, 199, 0.8);
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.connection_state div {
+  color: rgb(32, 32, 32);
+}
+
+#message_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(39, 39, 39);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#onlineIcon, #offlineIcon{
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: rgb(240, 240, 240);
+}
+
+#onlineIcon {
+  color: rgb(0, 140, 255);
+}
+
+#offlineIcon {
+  color: rgb(255, 40, 40);
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+span.none {
+  display: none;
+}
