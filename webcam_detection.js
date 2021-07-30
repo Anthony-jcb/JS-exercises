@@ -3,11 +3,24 @@ export default function webcam(id) {
 
   if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true})
+      .getUserMedia({ video: true })
       .then((stream) => {
         $video.srcObject = stream;
         $video.play();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.name === "NotAllowedError") {
+          const message = "You not allow the camera"
+          $video.insertAdjacentHTML(
+            "beforebegin",
+            `<span>An error has happened: <mark>${message}</mark></span>`
+          );
+        } else {
+          $video.insertAdjacentHTML(
+            "beforebegin",
+            `<mark><span>An error has happened: ${err}</span></mark>`
+          );
+        }
+      });
   }
 }

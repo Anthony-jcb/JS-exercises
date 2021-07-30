@@ -10,6 +10,8 @@ h2 {
 
 .container_webcam {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
