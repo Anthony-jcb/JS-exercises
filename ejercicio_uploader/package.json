@@ -1,0 +1,19 @@
+{
+  "name": "ejercicio_uploader",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ./main.js"
+  },
+  "keywords": [],
+  "author": "Anthony-jcb",
+  "license": "ISC",
+  "description": "simple server",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "fastify": "^3.20.2",
+    "fastify-helmet": "^5.3.2",
+    "fastify-static": "^4.2.3",
+    "point-of-view": "^4.15.1"
+  }
+}
