@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/index.css" />
+    <title>AJAX Uploader</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/index.css">
-  <title>AJAX Uploader</title>
-</head>
-
-<body>
-  <%- include('header') %>
+  <body>
+    <%- include('header') %>
     <main>
-      <input type="file" name="files" id="files">
+      <input type="file" name="files" id="files" multiple />
     </main>
+
     <script>
       const d = document,
         $main = d.querySelector("main"),
@@ -22,23 +22,46 @@
         const formData = new FormData();
         formData.append("file", file);
 
-        const res = await fetch(
-          "http://localhost:3000/upload",
-          {
-            method: "POST",
-            body: formData,
-          }
-        )
+        const res = await fetch("http://localhost:3000/upload", {
+          method: "POST",
+          body: formData,
+        });
         console.log(await res.json());
+      };
+
+      function progressUpload(file) {
+        const $progress = d.createElement("progress"),
+          $span = d.createElement("span");
+
+        $progress.value = 0;
+        $progress.max = 100;
+
+        $main.insertAdjacentElement("beforeend", $progress);
+        $main.insertAdjacentElement("beforeend", $span);
+
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+
+        fileReader.addEventListener("progress", (e) => {
+          let progress = parseInt((e.loaded / e.total) * 100);
+          $progress.value = progress;
+          $span.innerHTML = `${file.name} <b>${progress}%</b>`;
+        });
+        fileReader.addEventListener("loadend", (e) => {
+          uploader(file)
+          setTimeout(() => {
+            $main.removeChild($progress);
+            $main.removeChild($span);
+          }, 4000);
+        });
       }
 
       d.addEventListener("change", (e) => {
         if (e.target === $files) {
           const files = Array.from(e.target.files);
-          files.forEach(file => uploader(file));
+          files.forEach((file) => progressUpload(file));
         }
-      })
+      });
     </script>
-</body>
-
+  </body>
 </html>
