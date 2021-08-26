@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+}
+
+div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 208, 0);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}

@@ -3,17 +3,42 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../public/index.css">
   <title>AJAX Uploader</title>
 </head>
 
 <body>
-  <main>
-    <%- include('./header.ejs') %>
-    <h1><%= name %></h1> 
-    <input type="file" name="files" id="files" multiple>
-  </main>
+  <%- include('header') %>
+    <main>
+      <input type="file" name="files" id="files">
+    </main>
+    <script>
+      const d = document,
+        $main = d.querySelector("main"),
+        $files = d.getElementById("files");
+
+      const uploader = async (file) => {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const res = await fetch(
+          "http://localhost:3000/upload",
+          {
+            method: "POST",
+            body: formData,
+          }
+        )
+        console.log(await res.json());
+      }
+
+      d.addEventListener("change", (e) => {
+        if (e.target === $files) {
+          const files = Array.from(e.target.files);
+          files.forEach(file => uploader(file));
+        }
+      })
+    </script>
 </body>
 
 </html>

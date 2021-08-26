@@ -1,27 +1,41 @@
-const app = require("fastify")({ logger: true });
-const path = require("path");
-const resolve = require("path").resolve;
+const app = require("fastify")({ logger: false });
+const { join } = require("path");
 const templatesFolder = "templates";
 
-//app.register(helmet);
+//app.register(require("fastify-helmet"));
+//app.register(require("fastify-formbody"));
+//app.register(require("fastify-multipart"), { attachFieldsToBody: true });
+app.register(require("fastify-file-upload"));
 
 app.register(require("point-of-view"), {
   engine: {
     ejs: require("ejs"),
   },
   includeViewExtension: true,
-  templates: path.join(__dirname, templatesFolder),
+  root: join(__dirname, templatesFolder),
 });
 
-/* app.register(require("fastify-static"), {
-  root: path.join(__dirname, "/public"),
+app.register(require("fastify-static"), {
+  root: join(__dirname, "/public"),
   prefix: "/public/",
-}); */
+});
 
 app.get("/", async (req, reply) => {
-  const name = req.query.name || "Anonymous";
-  return reply.view("index", { name });
+  return reply.view("index", {});
 });
+
+app.post('/upload', function (req, reply) {
+  const files = req.raw.files
+  console.log(files)
+  let fileArr = []
+  for(let key in files){
+    fileArr.push({
+      name: files[key].name,
+      mimetype: files[key].mimetype
+    })
+  }
+  reply.send(files)
+})
 
 const start = async () => {
   try {
