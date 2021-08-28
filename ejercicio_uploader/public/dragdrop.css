@@ -1,0 +1,72 @@
+:root {
+  --primary-color: rgb(81, 161, 252);
+  --default-background: rgb(255, 255, 255);
+  --text-color: rgb(32, 32, 32);
+}
+
+body {
+  margin: 0;
+  background-color: rgb(245, 245, 245);
+  color: var(--text-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-zone-container {
+  margin: 1rem auto;
+  width: 70%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--default-background);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+}
+
+.drop-zone-container span {
+  text-align: left;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.drop-zone-container svg {
+  width: 75%;
+  height: 75%;
+}
+
+.drop-zone {
+  width: inherit;
+  height: inherit;
+  background-color: transparent;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  border-radius: 1rem;
+  border: thin solid transparent;
+}
+
+.drop-zone.is-active {
+  animation: dropZoneAcive 1.6s infinite;
+  animation-timing-function: linear;
+  border: 3px solid var(--primary-color);
+}
+
+@keyframes dropZoneAcive {
+  0%, 100% {
+    background-color: rgba(81, 161, 252, 0.25);
+  }
+
+  50% {
+    background-color: rgba(81, 161, 252, 0.1);
+  }
+}

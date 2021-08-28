@@ -19,7 +19,7 @@ app.register(require("fastify-static"), {
 });
 
 app.get("/", async (req, reply) => {
-  return reply.view("index", {});
+  return reply.view("dragdrop", {});
 });
 
 app.post("/upload", {
