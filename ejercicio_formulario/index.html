@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms validations</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <form class="contact-form">
+      <legend>Send us your commens</legend>
+      <div>
+        <span>Name</span>
+        <input
+        type="text"
+        name="name"
+        title="Name only accepts white spaces, Uppercase and letters"
+        placeholder="Write your name"
+        pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+        required
+      />
+      </div>
+      <input
+        type="text"
+        name="subject"
+        placeholder="What we will talk about?"
+        required
+      />
+      <input
+        type="email"
+        name="email"
+        title="Email only accepts alphanumeric characters and some symbols"
+        placeholder="Write your email"
+        pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+        required
+      />
+      <textarea
+        name="comment"
+        data-pattern="^.{1,255}$"
+        title="Your comment cannot be longer than 255 characters, including whitespace."
+        required
+      ></textarea>
+      <input type="submit" value="Send" />
+      <div class="contact-form-loader none">
+        <img src="./assets/loader.svg" />
+      </div>
+      <div class="contact-form-response none">
+        <p>Datos enviados con éxito</p>
+      </div>
+    </form>
+  </body>
+</html>
