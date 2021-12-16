@@ -1,25 +1,18 @@
 const D = document,
-  W = window;
+  W = window
 
 export default function scrollTop(input) {
-  const $input = D.querySelector(input);
+  const $input = D.querySelector(input)
 
-  W.addEventListener("scroll", (e) => {
-    const pageScrollTop = W.pageYOffset;
+  W.onscroll = e => {
+    W.pageYOffset > 400
+      ? $input.classList.remove("hidden")
+      : $input.classList.add("hidden")
+  }
 
-    if (pageScrollTop > 400) {
-      $input.classList.remove("hidden");
-    } else {
-      $input.classList.add("hidden");
-    }
-  });
-
-  D.addEventListener("click", (e) => {
+  D.onclick = e => {
     if (e.target.matches(input) || e.target.matches(`${input} *`)) {
-      W.scrollTo({
-        behavior: "smooth",
-        top: 0,
-      });
+      W.scrollTo({ top: 0, behavior: "smooth" })
     }
-  });
+  }
 }
